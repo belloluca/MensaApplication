@@ -39,9 +39,9 @@
         android:id="@+id/imageView22"
         android:layout_width="469dp"
         android:layout_height="875dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="240dp"
         android:orientation="horizontal"
-        android:src="@drawable/rectangle"
+        android:src="@drawable/rettangle2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -126,7 +126,7 @@
         android:orientation="horizontal"
         android:src="@drawable/rectangle1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView22"
         tools:ignore="MissingConstraints" />
@@ -138,5 +138,17 @@
         app:layout_constraintStart_toStartOf="@+id/imageView14"
         app:layout_constraintTop_toTopOf="@+id/imageView14"
         app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:text="Mensacard"
+        android:textColor="#8B1212"
+        android:textSize="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
