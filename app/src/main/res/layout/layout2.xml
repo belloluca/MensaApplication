@@ -80,9 +80,9 @@
         android:layout_width="564dp"
         android:layout_height="294dp"
         android:layout_marginStart="-70dp"
-        android:layout_marginTop="396dp"
+        android:layout_marginBottom="-150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView28"
         app:srcCompat="@drawable/half_elipse" />
 
     <ImageView
