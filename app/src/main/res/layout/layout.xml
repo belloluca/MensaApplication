@@ -8,257 +8,168 @@
     android:background="#FEFAFD"
     android:backgroundTint="#FDF9FC">
 
-    <ImageView
-        android:id="@+id/imageView31"
-        android:layout_width="427dp"
-        android:layout_height="114dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="76dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView30"
-        app:srcCompat="@drawable/rounded_button_horizontal" />
-
-    <ImageView
-        android:id="@+id/imageView32"
-        android:layout_width="427dp"
-        android:layout_height="114dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="77dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView31"
-        app:srcCompat="@drawable/rounded_button_horizontal" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="0dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="368dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="14dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
+    <HorizontalScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="300dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/_1205" />
+        android:contentDescription="@string/appbar_scrolling_view_behavior">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="333dp"
-        android:layout_marginEnd="7dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView27"
+                android:layout_width="72dp"
+                android:layout_height="82dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView25"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/rounded_button" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="72dp"
+                android:layout_height="82dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/rounded_button" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="72dp"
+                android:layout_height="82dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView9"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/rounded_button" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="72dp"
+                android:layout_height="82dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView9"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/rounded_button" />
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="72dp"
+                android:layout_height="82dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView19"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/rounded_button" />
+
+            <ImageView
+                android:id="@+id/imageView25"
+                android:layout_width="72dp"
+                android:layout_height="82dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView13"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/rounded_button" />
+
+            <ImageView
+                android:id="@+id/imageView19"
+                android:layout_width="72dp"
+                android:layout_height="82dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView12"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/rounded_button" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </HorizontalScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="110dp"
+        android:contentDescription="@string/appbar_scrolling_view_behavior"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView4"
-        app:srcCompat="@drawable/_65422" />
+        app:layout_constraintTop_toTopOf="@+id/scrollView3">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView31"
+                android:layout_width="258dp"
+                android:layout_height="126dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView32"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/rounded_button_horizontal" />
+
+            <ImageView
+                android:id="@+id/imageView33"
+                android:layout_width="33dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="56dp"
+                app:layout_constraintStart_toStartOf="@+id/imageView31"
+                app:layout_constraintTop_toTopOf="@+id/imageView31"
+                app:srcCompat="@drawable/empty_star" />
+
+            <ImageView
+                android:id="@+id/imageView32"
+                android:layout_width="254dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="6dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView31"
+                app:srcCompat="@drawable/rounded_button_horizontal" />
+
+            <ImageView
+                android:id="@+id/imageView30"
+                android:layout_width="254dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="11dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView32"
+                app:srcCompat="@drawable/rounded_button_horizontal" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="254dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="11dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView30"
+                app:srcCompat="@drawable/rounded_button_horizontal" />
+
+            <ImageView
+                android:id="@+id/imageView26"
+                android:layout_width="254dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="11dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5"
+                app:srcCompat="@drawable/rounded_button_horizontal" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="205dp"
         android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
         android:text="Mensa Airport"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="66dp"
-        android:layout_height="93dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.228"
-        app:srcCompat="@drawable/rounded_button" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="69dp"
-        android:layout_height="93dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView12"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.23"
-        app:srcCompat="@drawable/rounded_button" />
-
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="76dp"
-        android:layout_height="93dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView13"
-        app:layout_constraintStart_toEndOf="@+id/imageView11"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.229"
-        app:srcCompat="@drawable/rounded_button" />
-
-    <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="76dp"
-        android:layout_height="94dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView15"
-        app:layout_constraintStart_toEndOf="@+id/imageView12"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.23"
-        app:srcCompat="@drawable/rounded_button" />
-
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="69dp"
-        android:layout_height="93dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView13"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.228"
-        app:srcCompat="@drawable/rounded_button" />
-
-    <ImageView
-        android:id="@+id/imageView19"
-        android:layout_width="31dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView9"
-        app:layout_constraintTop_toTopOf="@+id/imageView9"
-        app:srcCompat="@drawable/fisch" />
-
-    <ImageView
-        android:id="@+id/imageView24"
-        android:layout_width="29dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView11"
-        app:layout_constraintTop_toTopOf="@+id/imageView11"
-        app:srcCompat="@drawable/geflugel" />
-
-    <ImageView
-        android:id="@+id/imageView25"
-        android:layout_width="27dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView12"
-        app:layout_constraintTop_toTopOf="@+id/imageView12"
-        app:srcCompat="@drawable/lamm" />
-
-    <ImageView
-        android:id="@+id/imageView26"
-        android:layout_width="26dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView13"
-        app:layout_constraintTop_toTopOf="@+id/imageView13"
-        app:srcCompat="@drawable/mensa_vital" />
-
-    <ImageView
-        android:id="@+id/imageView27"
-        android:layout_width="28dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView15"
-        app:layout_constraintTop_toTopOf="@+id/imageView15"
-        app:srcCompat="@drawable/mensa_vegan" />
-
-    <ImageView
-        android:id="@+id/imageView30"
-        android:layout_width="427dp"
-        android:layout_height="114dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="77dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:srcCompat="@drawable/rounded_button_horizontal" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="225dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="64dp"
-        android:text="Tofusteak mariniert mit Pilzsauce  und Pommes Frites"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="225dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="188dp"
-        android:text="Salat zur Selbstbedienung je 100g"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="225dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="320dp"
-        android:text="Backkartoffel mit Sour Creme und Salatbeilage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
-
-    <ImageView
-        android:id="@+id/imageView33"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="-225dp"
-        android:layout_marginTop="-20dp"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
-
-    <ImageView
-        android:id="@+id/imageView36"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="-315dp"
-        android:layout_marginTop="-20dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView31"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
-
-    <ImageView
-        android:id="@+id/imageView37"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="-315dp"
-        android:layout_marginTop="-20dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView32"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
-
-    <ImageView
         android:id="@+id/imageView44"
         android:layout_width="351dp"
         android:layout_height="23dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="200dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/search_bar" />
@@ -267,18 +178,19 @@
         android:id="@+id/imageView45"
         android:layout_width="18dp"
         android:layout_height="22dp"
-        android:layout_marginStart="304dp"
+        android:layout_marginStart="290dp"
+        android:layout_marginTop="200dp"
         app:layout_constraintStart_toStartOf="@+id/imageView44"
-        app:layout_constraintTop_toTopOf="@+id/imageView44"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/_031293" />
 
     <ImageView
-        android:id="@+id/imageView46"
-        android:layout_width="26dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="124dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView45"
+        android:id="@+id/imageView47"
+        android:layout_width="25dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="330dp"
+        android:layout_marginTop="200dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView44"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/_5281" />
 
