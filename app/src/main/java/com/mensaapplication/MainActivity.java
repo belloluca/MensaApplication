@@ -9,28 +9,73 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.mensaapplication.Adapters.MensaAdapter;
+import com.mensaapplication.Models.Mensa;
 import com.mensaapplication.ui.theme.RecyclerViewInterface;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements RecyclerViewInterface {
 
-    ArrayList<MensaModel> mensaModel = new ArrayList<>();
-
+    List<Mensa> mensaModel;
+    String url = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        url = "https://mensaappserver.onrender.com/mensas";
+        StringRequest request = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+//                            String datetime = response.getString("datetime");
+//                            String date = datetime.split("T")[0];
+                            System.out.println(response);
+                            Mensa[] mensas = new Gson().fromJson(response,Mensa[].class);
+                            mensaModel = Arrays.asList(mensas);
+                            recyclerViewMensa();
+                            //System.out.println(mensas);
+                        } catch (Exception e) {
+                            System.out.println("G");
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("H");
+            }
+        });
+        request.setRetryPolicy(
+                new DefaultRetryPolicy(
+                        500000,
+                        DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+                )
+        );
+        Volley.newRequestQueue(this).add(request);
+    }
+
+    private void recyclerViewMensa(){
         RecyclerView recyclerView = findViewById(R.id.mRecyclerView);
 
-        setUpMensaModels();
+        //setUpMensaModels();
 
-        M_RecyclerViewAdapter adapter = new M_RecyclerViewAdapter(this, mensaModel, this);
+        MensaAdapter adapter = new MensaAdapter(mensaModel);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        Button profile = findViewById(R.id.button1);
+        Button profile = findViewById(R.id.btnMensa);
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,13 +83,15 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
             }
         });
 
-        M_RecyclerViewAdapter.OnButtonClickListener buttonClickListener = new M_RecyclerViewAdapter.OnButtonClickListener() {
+        MensaAdapter.OnButtonClickListener buttonClickListener = new MensaAdapter.OnButtonClickListener() {
             @Override
             public void onButtonClick(int position) {
                 // Azioni da eseguire quando viene cliccato un pulsante nella RecyclerView
                 // Ad esempio, avvia un'altra Activity passando dati
                 Intent intent = new Intent(MainActivity.this, MainActivity2.class);
                 intent.putExtra("position", position);
+                intent.putExtra("mensaName",mensaModel.get(position).getName());
+                profile.getText();
                 startActivity(intent);
             }
         };
@@ -59,10 +106,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
 
     public void setUpMensaModels(){
 
-        String[] mensaNames = getResources().getStringArray(R.array.Mensa_names);
+        /*String[] mensaNames = getResources().getStringArray(R.array.Mensa_names);
         for (int i = 0; i < mensaNames.length; i++){
             mensaModel.add(new MensaModel(mensaNames[i]));
-        }
+        }*/
 
     }
 

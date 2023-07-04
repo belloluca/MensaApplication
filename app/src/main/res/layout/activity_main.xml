@@ -57,7 +57,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView22" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btnMensa"
         android:layout_width="26dp"
         android:layout_height="26dp"
         android:layout_marginTop="16dp"

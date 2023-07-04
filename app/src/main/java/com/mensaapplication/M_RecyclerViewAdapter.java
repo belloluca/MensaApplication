@@ -78,7 +78,7 @@ public class M_RecyclerViewAdapter extends RecyclerView.Adapter<M_RecyclerViewAd
         public MyViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
 
-            button = itemView.findViewById(R.id.button1);
+            button = itemView.findViewById(R.id.btnMensa);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

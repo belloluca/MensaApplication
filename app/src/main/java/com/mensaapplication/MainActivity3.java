@@ -16,7 +16,7 @@ public class MainActivity3 extends AppCompatActivity {
         Intent intent = getIntent();
 
         String meal = intent.getStringExtra("MealName");
-        TextView MealName = findViewById(R.id.textView7);
+        TextView MealName = findViewById(R.id.plateName);
         MealName.setText(meal);
         ImageView Filter = findViewById(R.id.imageView8);
         int filter = intent.getIntExtra("Filter", 32);

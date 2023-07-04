@@ -1,83 +1,124 @@
 package com.mensaapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.mensaapplication.Adapters.MensaAdapter;
+import com.mensaapplication.Adapters.PlatesAdapter;
+import com.mensaapplication.Models.Food;
+import com.mensaapplication.Models.Mensa;
+import com.mensaapplication.ui.theme.RecyclerViewInterface;
 
-public class MainActivity2 extends AppCompatActivity {
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-    ImageView imageView;
-    ImageView imageView2;
-    ImageView imageView3;
-    ImageView imageView4;
-    ImageView imageView5;
+
+public class MainActivity2 extends AppCompatActivity implements RecyclerViewInterface {
+
+    List<Food> plates;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout);
-//        imageView = findViewById(R.id.imageView31);
-//        imageView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Intent class will help to go to next activity using
-//                // it's object named intent.
-//                // SecondActivty is the name of new created EmptyActivity.
-//                //Intent intent = new Intent(MainActivity.this, layout.class);
-//                //startActivity(intent);
-//                setContentView(R.layout.layout2);
-//            }
-//        });
-//        imageView2 = findViewById(R.id.imageView32);
-//        imageView2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Intent class will help to go to next activity using
-//                // it's object named intent.
-//                // SecondActivty is the name of new created EmptyActivity.
-//                //Intent intent = new Intent(MainActivity.this, layout.class);
-//                //startActivity(intent);
-//                setContentView(R.layout.layout2);
-//            }
-//        });
-//        imageView3 = findViewById(R.id.imageView30);
-//        imageView3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Intent class will help to go to next activity using
-//                // it's object named intent.
-//                // SecondActivty is the name of new created EmptyActivity.
-//                //Intent intent = new Intent(MainActivity.this, layout.class);
-//                //startActivity(intent);
-//                setContentView(R.layout.layout2);
-//            }
-//        });
-//        imageView4 = findViewById(R.id.imageView5);
-//        imageView4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Intent class will help to go to next activity using
-//                // it's object named intent.
-//                // SecondActivty is the name of new created EmptyActivity.
-//                //Intent intent = new Intent(MainActivity.this, layout.class);
-//                //startActivity(intent);
-//                setContentView(R.layout.layout2);
-//            }
-//        });
-//        imageView5 = findViewById(R.id.imageView26);
-//        imageView5.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Intent class will help to go to next activity using
-//                // it's object named intent.
-//                // SecondActivty is the name of new created EmptyActivity.
-//                //Intent intent = new Intent(MainActivity.this, layout.class);
-//                //startActivity(intent);
-//                setContentView(R.layout.layout2);
-//            }
-//        });
+
+        String mensaName = getIntent().getStringExtra("mensaName");
+        System.out.println(mensaName);
+        String url = "https://mensaappserver.onrender.com/platesFromMensa";
+        StringRequest request = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            System.out.println(response);
+                            Food[] foods = new Gson().fromJson(response, Food[].class);
+                            plates = Arrays.asList(foods);
+                            recyclerViewPlate();
+                        } catch (Exception e) {
+                            System.out.println("G");
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("H");
+            }
+        }){
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("mensaName",mensaName);
+                return params;
+            }
+        };
+        request.setRetryPolicy(
+                new DefaultRetryPolicy(
+                        500000,
+                        DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+                )
+        );
+        Volley.newRequestQueue(this).add(request);
+    }
+
+    private void recyclerViewPlate(){
+        RecyclerView recyclerView = findViewById(R.id.recyclerViewPlates);
+
+        //setUpMensaModels();
+
+        PlatesAdapter adapter = new PlatesAdapter(plates);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        Button profile = findViewById(R.id.btnMensa);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeActivity();
+            }
+        });
+
+        PlatesAdapter.OnButtonClickListener buttonClickListener = new PlatesAdapter.OnButtonClickListener() {
+            @Override
+            public void onButtonClick(int position) {
+                // Azioni da eseguire quando viene cliccato un pulsante nella RecyclerView
+                // Ad esempio, avvia un'altra Activity passando dati
+                Intent intent = new Intent(MainActivity2.this,MainActivity3.class);
+                intent.putExtra("position", position);
+                intent.putExtra("plateId",plates.get(position).getId());
+                profile.getText();
+                startActivity(intent);
+            }
+        };
+
+        adapter.setOnButtonClickListener(buttonClickListener);
+    }
+
+    private void changeActivity(){
+        Intent intent = new Intent(this, MainActivity1.class);
+        startActivity(intent);
+    }
+
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
+
+        startActivity(intent);
     }
 }
