@@ -85,13 +85,13 @@ public class MainActivity2 extends AppCompatActivity implements RecyclerViewInte
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        Button profile = findViewById(R.id.btnMensa);
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeActivity();
-            }
-        });
+//        Button profile = findViewById(R.id.btnMensa);
+//        profile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                changeActivity();
+//            }
+//        });
 
         PlatesAdapter.OnButtonClickListener buttonClickListener = new PlatesAdapter.OnButtonClickListener() {
             @Override
@@ -101,7 +101,7 @@ public class MainActivity2 extends AppCompatActivity implements RecyclerViewInte
                 Intent intent = new Intent(MainActivity2.this,MainActivity3.class);
                 intent.putExtra("position", position);
                 intent.putExtra("plateId",plates.get(position).getId());
-                profile.getText();
+                //profile.getText();
                 startActivity(intent);
             }
         };

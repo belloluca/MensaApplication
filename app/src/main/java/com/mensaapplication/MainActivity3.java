@@ -13,16 +13,16 @@ public class MainActivity3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout2);
-        Intent intent = getIntent();
-
-        String meal = intent.getStringExtra("MealName");
-        TextView MealName = findViewById(R.id.plateName);
-        MealName.setText(meal);
-        ImageView Filter = findViewById(R.id.imageView8);
-        int filter = intent.getIntExtra("Filter", 32);
-        Filter.setImageResource(filter);
-        ImageView Rating = findViewById(R.id.imageView10);
-        int rating = intent.getIntExtra("Rating", 32);
-        Rating.setImageResource(rating);
+//        Intent intent = getIntent();
+//
+//        String meal = intent.getStringExtra("MealName");
+//        TextView MealName = findViewById(R.id.plateName);
+//        MealName.setText(meal);
+//        ImageView Filter = findViewById(R.id.imageView8);
+//        int filter = intent.getIntExtra("Filter", 32);
+//        Filter.setImageResource(filter);
+//        ImageView Rating = findViewById(R.id.imageView10);
+//        int rating = intent.getIntExtra("Rating", 32);
+//        Rating.setImageResource(rating);
     }
 }

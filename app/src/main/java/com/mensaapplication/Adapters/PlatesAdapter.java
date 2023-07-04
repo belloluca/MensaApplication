@@ -55,6 +55,8 @@ public class PlatesAdapter extends RecyclerView.Adapter<PlatesAdapter.ViewHolder
         holder.plateName.setText(plates.get(position).getName());
         holder.priceForStud.setText(plates.get(position).getPriceForStudents());
         holder.priceForNonStud.setText(plates.get(position).getPriceForNonStudents());
+       // holder.mensaName.setText(plates.get(position).getMensaName());
+
     }
 
     @Override
@@ -66,7 +68,7 @@ public class PlatesAdapter extends RecyclerView.Adapter<PlatesAdapter.ViewHolder
     {
         ConstraintLayout plateLayout;
         ConstraintLayout mainLayout;
-        TextView plateName,priceForStud,priceForNonStud;
+        TextView plateName,priceForStud,priceForNonStud,mensaName;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             plateLayout = itemView.findViewById(R.id.plateLayout);
@@ -74,6 +76,7 @@ public class PlatesAdapter extends RecyclerView.Adapter<PlatesAdapter.ViewHolder
             priceForStud = itemView.findViewById(R.id.PriceStud);
             priceForNonStud = itemView.findViewById(R.id.PriceBed);
             mainLayout = itemView.findViewById(R.id.platesLayout);
+           // mensaName = itemView.findViewById(R.id.mensaName);
         }
     }
 
