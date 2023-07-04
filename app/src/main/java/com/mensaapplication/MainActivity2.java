@@ -1,6 +1,8 @@
 package com.mensaapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -99,10 +101,14 @@ public class MainActivity2 extends AppCompatActivity implements RecyclerViewInte
                 // Azioni da eseguire quando viene cliccato un pulsante nella RecyclerView
                 // Ad esempio, avvia un'altra Activity passando dati
                 Intent intent = new Intent(MainActivity2.this,MainActivity3.class);
+
+                RecyclerView recyclerView = findViewById(R.id.recyclerViewPlates);
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity2.this, recyclerView, ViewCompat.getTransitionName(recyclerView));
+
                 intent.putExtra("position", position);
                 intent.putExtra("plateId",plates.get(position).getId());
                 //profile.getText();
-                startActivity(intent);
+                startActivity(intent, options.toBundle());
             }
         };
 

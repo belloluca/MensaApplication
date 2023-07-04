@@ -267,14 +267,16 @@
         android:text="Mensa Airport"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:transitionName="mensa_transition"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="350dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/recyclerViewPlates"/>
+        android:id="@+id/recyclerViewPlates"
+        android:transitionName="meals_transition"/>
 
     <ImageView
         android:id="@+id/imageView44"
