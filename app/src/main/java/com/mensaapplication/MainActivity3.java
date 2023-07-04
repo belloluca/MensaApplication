@@ -1,21 +1,11 @@
 package com.mensaapplication;
 
-import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.util.Log;
+import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.view.View;
 
-import androidx.core.view.WindowCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity3 extends AppCompatActivity {
 
